@@ -1,0 +1,5 @@
+[requires]
+ice-build-tools/0.0.1@iceshard/stable
+
+[generators]
+virtualenv
