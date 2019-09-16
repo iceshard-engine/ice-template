@@ -1,2 +1,3 @@
-# ice
-A template repository for various types of C++ projects within the IceShard organization.  
+# Quick note
+
+This repository is used as a template for other projects. 
