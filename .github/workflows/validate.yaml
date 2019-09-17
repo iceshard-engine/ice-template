@@ -1,0 +1,23 @@
+name: Validation
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  validation-build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup repository
+      run: |
+        pip install conan
+        conan remote add conan-iceshard https://conan.iceshard.net/
+        conan remote add conan-bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+    - name: Build
+      run: |
+        conan create . ice-build-tools/0.0.1@iceshard/stable
+    - name: Verify
+      run: |
+        ice
