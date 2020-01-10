@@ -43,7 +43,7 @@ GOTO :_exit
 :: Application runtime
 :_run
 CALL build\tools\activate.bat
-CALL "%ICE_SCRIPT%" %*
+CALL "%ICE_SCRIPT%" tools/application.moon %*
 
 :: Save this value as it so the call to 'deactivate' wont erase it in some caes
 set ERROR_CODE=%ERRORLEVEL%
