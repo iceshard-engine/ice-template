@@ -34,15 +34,16 @@ GOTO :_run
 :: Initialize the project environment
 :_initialize
 PUSHD build\tools
-conan install ..\..\tools
+conan install ..\..\tools --build=missing
 POPD
 ECHO Workspace initialized...
-EXIT /B 0
+GOTO :_exit
 
 
 :: Application runtime
 :_run
 CALL build\tools\activate.bat
+CALL "%ICE_SCRIPT%" %*
 
 :: Save this value as it so the call to 'deactivate' wont erase it in some caes
 set ERROR_CODE=%ERRORLEVEL%
